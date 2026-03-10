@@ -28,6 +28,17 @@ function updateTimeout(row) {
   timeoutOutput.textContent = getTimeoutValue(timeInInput.value);
 }
 
+async function toggleFullscreen(button) {
+  if (!document.fullscreenElement) {
+    await document.documentElement.requestFullscreen();
+    button.textContent = "Exit Full Screen";
+    return;
+  }
+
+  await document.exitFullscreen();
+  button.textContent = "Full Screen";
+}
+
 document.querySelectorAll(".row:not(.row-head)").forEach((row) => {
   updateTimeout(row);
 
@@ -42,3 +53,22 @@ document.querySelectorAll(".row:not(.row-head)").forEach((row) => {
     button.setAttribute("aria-pressed", String(isActive));
   });
 });
+
+const fullscreenButton = document.querySelector("[data-fullscreen-btn]");
+
+if (fullscreenButton) {
+  fullscreenButton.addEventListener("click", async () => {
+    try {
+      await toggleFullscreen(fullscreenButton);
+    } catch {
+      fullscreenButton.textContent = "Fullscreen not supported";
+      fullscreenButton.disabled = true;
+    }
+  });
+
+  document.addEventListener("fullscreenchange", () => {
+    fullscreenButton.textContent = document.fullscreenElement
+      ? "Exit Full Screen"
+      : "Full Screen";
+  });
+}
