@@ -34,4 +34,11 @@ document.querySelectorAll(".row:not(.row-head)").forEach((row) => {
   row.querySelector("[data-time-in]")?.addEventListener("input", () => {
     updateTimeout(row);
   });
+
+  row.querySelector("[data-lunch-btn]")?.addEventListener("click", (event) => {
+    const button = event.currentTarget;
+    const isActive = row.classList.toggle("lunch-active");
+    button.textContent = isActive ? "Back from Lunch" : "Out for Lunch";
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 });

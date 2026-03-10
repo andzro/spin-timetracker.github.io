@@ -51,9 +51,11 @@ header p {
 
 .row {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr auto;
   gap: 10px;
   align-items: center;
+  border-radius: 14px;
+  padding: 4px;
 }
 
 .row-head {
@@ -77,7 +79,37 @@ output {
   font-weight: 600;
 }
 
+.lunch-btn {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  padding: 11px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lunch-btn:hover {
+  border-color: var(--accent);
+}
+
+.row.lunch-active {
+  background: rgba(248, 201, 72, 0.18);
+}
+
+.row.lunch-active .lunch-btn {
+  background: #f8c948;
+  border-color: #e1b633;
+}
+
 input:focus {
+  outline: 2px solid color-mix(in oklab, var(--accent), white 60%);
+  border-color: var(--accent);
+}
+
+.lunch-btn:focus {
   outline: 2px solid color-mix(in oklab, var(--accent), white 60%);
   border-color: var(--accent);
 }
