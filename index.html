@@ -21,7 +21,7 @@
             Full Screen
           </button>
         </div>
-        <p>Set employee names and time-in. Time-out auto-calculates at +9 hours.</p>
+        <p>TV mode: large live countdowns, +9h shift, and 1h 30m total break tracker.</p>
       </header>
 
       <section class="board" aria-label="Employee time tracker">
@@ -29,6 +29,8 @@
           <span>Employee</span>
           <span>Time In</span>
           <span>Time Out (+9h)</span>
+          <span>Time Left</span>
+          <span>Break Left</span>
           <span>Status</span>
         </div>
 
@@ -42,6 +44,8 @@
             <input type="time" value="09:40" data-time-in />
           </label>
           <output data-time-out>6:40 PM</output>
+          <output data-time-left>--:--:--</output>
+          <output data-break-left>1:30:00</output>
           <button type="button" class="lunch-btn" data-lunch-btn>Out for Lunch</button>
         </div>
 
@@ -55,6 +59,8 @@
             <input type="time" value="07:00" data-time-in />
           </label>
           <output data-time-out>4:00 PM</output>
+          <output data-time-left>--:--:--</output>
+          <output data-break-left>1:30:00</output>
           <button type="button" class="lunch-btn" data-lunch-btn>Out for Lunch</button>
         </div>
 
@@ -68,6 +74,8 @@
             <input type="time" value="08:40" data-time-in />
           </label>
           <output data-time-out>5:40 PM</output>
+          <output data-time-left>--:--:--</output>
+          <output data-break-left>1:30:00</output>
           <button type="button" class="lunch-btn" data-lunch-btn>Out for Lunch</button>
         </div>
 
@@ -81,6 +89,8 @@
             <input type="time" value="08:03" data-time-in />
           </label>
           <output data-time-out>5:03 PM</output>
+          <output data-time-left>--:--:--</output>
+          <output data-break-left>1:30:00</output>
           <button type="button" class="lunch-btn" data-lunch-btn>Out for Lunch</button>
         </div>
 
@@ -94,6 +104,8 @@
             <input type="time" value="07:00" data-time-in />
           </label>
           <output data-time-out>4:00 PM</output>
+          <output data-time-left>--:--:--</output>
+          <output data-break-left>1:30:00</output>
           <button type="button" class="lunch-btn" data-lunch-btn>Out for Lunch</button>
         </div>
       </section>

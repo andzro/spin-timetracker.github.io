@@ -1,7 +1,7 @@
 :root {
   --bg-1: #f8f5ef;
   --bg-2: #e8eef7;
-  --card: rgba(255, 255, 255, 0.82);
+  --card: rgba(255, 255, 255, 0.9);
   --ink: #20242b;
   --muted: #5a6472;
   --line: #ccd5e1;
@@ -19,24 +19,16 @@ body {
   color: var(--ink);
   background: radial-gradient(circle at 20% 10%, var(--bg-2), transparent 50%),
     radial-gradient(circle at 80% 70%, #f4e8d5, transparent 40%), var(--bg-1);
-  display: grid;
-  place-items: center;
-  padding: 24px;
 }
 
 .app {
-  width: min(920px, 100%);
+  width: 100vw;
+  min-height: 100vh;
   background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 28px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 22px 42px rgba(32, 36, 43, 0.08);
-}
-
-header h1 {
-  margin: 0;
-  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  padding: clamp(14px, 2vh, 24px) clamp(16px, 2vw, 26px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
 }
 
 .header-top {
@@ -46,45 +38,56 @@ header h1 {
   gap: 12px;
 }
 
-.fullscreen-btn {
+header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+}
+
+.fullscreen-btn,
+.lunch-btn {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
   color: var(--ink);
   font: inherit;
-  font-weight: 600;
-  padding: 10px 14px;
+  font-weight: 700;
+  padding: 0.65em 0.95em;
   cursor: pointer;
   white-space: nowrap;
+  font-size: clamp(0.95rem, 1.2vw, 1.35rem);
 }
 
-.fullscreen-btn:hover {
+.fullscreen-btn:hover,
+.lunch-btn:hover {
   border-color: var(--accent);
-}
-
-header p {
-  margin: 8px 0 22px;
-  color: var(--muted);
 }
 
 .board {
   display: grid;
-  gap: 10px;
+  gap: 8px;
+  align-content: start;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr auto;
-  gap: 10px;
+  grid-template-columns: 1.1fr 0.9fr 1fr 1fr 0.9fr auto;
+  gap: 8px;
   align-items: center;
   border-radius: 14px;
-  padding: 4px;
+  padding: 6px;
 }
 
 .row-head {
   font-weight: 700;
   color: var(--accent);
-  padding: 0 4px;
+  font-size: clamp(0.95rem, 1.2vw, 1.4rem);
+  padding: 0 6px;
 }
 
 input,
@@ -92,34 +95,25 @@ output {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 11px 12px;
+  padding: 0.6em 0.72em;
   font: inherit;
   background: #fff;
+  font-size: clamp(1.1rem, 1.7vw, 2rem);
+}
+
+input[data-name] {
+  font-size: clamp(1.2rem, 2vw, 2.4rem);
+  font-weight: 700;
 }
 
 output {
   display: block;
-  font-weight: 600;
-}
-
-.lunch-btn {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
-  color: var(--ink);
-  font: inherit;
-  font-weight: 600;
-  padding: 11px 14px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.lunch-btn:hover {
-  border-color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .row.lunch-active {
-  background: rgba(248, 201, 72, 0.18);
+  background: rgba(248, 201, 72, 0.2);
 }
 
 .row.lunch-active .lunch-btn {
@@ -127,18 +121,10 @@ output {
   border-color: #e1b633;
 }
 
-input:focus {
-  outline: 2px solid color-mix(in oklab, var(--accent), white 60%);
-  border-color: var(--accent);
-}
-
-.lunch-btn:focus {
-  outline: 2px solid color-mix(in oklab, var(--accent), white 60%);
-  border-color: var(--accent);
-}
-
+input:focus,
+.lunch-btn:focus,
 .fullscreen-btn:focus {
-  outline: 2px solid color-mix(in oklab, var(--accent), white 60%);
+  outline: 3px solid color-mix(in oklab, var(--accent), white 55%);
   border-color: var(--accent);
 }
 
@@ -152,13 +138,13 @@ input:focus {
   border: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1280px) {
   .app {
-    padding: 20px;
+    min-height: auto;
   }
 
   .row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .row-head {
