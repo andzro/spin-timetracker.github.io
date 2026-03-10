@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin Time Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Spin Time Tracker</h1>
+        <p>Set employee names and time-in. Time-out auto-calculates at +9 hours.</p>
+      </header>
+
+      <section class="board" aria-label="Employee time tracker">
+        <div class="row row-head" role="row">
+          <span>Employee</span>
+          <span>Time In</span>
+          <span>Time Out (+9h)</span>
+        </div>
+
+        <div class="row" role="row">
+          <label>
+            <span class="sr-only">Employee 1 name</span>
+            <input type="text" value="Sieg" data-name />
+          </label>
+          <label>
+            <span class="sr-only">Employee 1 time in</span>
+            <input type="time" value="09:40" data-time-in />
+          </label>
+          <output data-time-out>6:40 PM</output>
+        </div>
+
+        <div class="row" role="row">
+          <label>
+            <span class="sr-only">Employee 2 name</span>
+            <input type="text" value="Ben" data-name />
+          </label>
+          <label>
+            <span class="sr-only">Employee 2 time in</span>
+            <input type="time" value="07:00" data-time-in />
+          </label>
+          <output data-time-out>4:00 PM</output>
+        </div>
+
+        <div class="row" role="row">
+          <label>
+            <span class="sr-only">Employee 3 name</span>
+            <input type="text" value="Henri" data-name />
+          </label>
+          <label>
+            <span class="sr-only">Employee 3 time in</span>
+            <input type="time" value="08:40" data-time-in />
+          </label>
+          <output data-time-out>5:40 PM</output>
+        </div>
+
+        <div class="row" role="row">
+          <label>
+            <span class="sr-only">Employee 4 name</span>
+            <input type="text" value="Khael" data-name />
+          </label>
+          <label>
+            <span class="sr-only">Employee 4 time in</span>
+            <input type="time" value="08:03" data-time-in />
+          </label>
+          <output data-time-out>5:03 PM</output>
+        </div>
+
+        <div class="row" role="row">
+          <label>
+            <span class="sr-only">Employee 5 name</span>
+            <input type="text" value="Roy" data-name />
+          </label>
+          <label>
+            <span class="sr-only">Employee 5 time in</span>
+            <input type="time" value="07:00" data-time-in />
+          </label>
+          <output data-time-out>4:00 PM</output>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
